@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Distribusi Poisson</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Distribusi Poisson</h1>
+        <form method="POST">
+            <label for="lambda">Rata-rata Kedatangan (λ):</label>
+            <input type="number" step="0.01" id="lambda" name="lambda" required placeholder="Masukkan λ">
+            
+            <label for="kValue">Jumlah Kedatangan (k):</label>
+            <input type="number" id="kValue" name="kValue" required placeholder="Masukkan k">
+
+            <button type="submit">Hitung</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <p><b>Hasil:</b> {{ result }}</p>
+            </div>
+        {% endif %}
+
+        {% if formula %}
+            <div class="formula">
+                <p><b>Penjelasan Perhitungan:</b></p>
+                <pre>{{ formula }}</pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
